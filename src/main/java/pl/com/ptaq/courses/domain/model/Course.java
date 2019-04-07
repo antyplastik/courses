@@ -4,11 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
-import org.omg.CORBA.PRIVATE_MEMBER;
-
-import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
 import javax.persistence.Entity;

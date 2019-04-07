@@ -1,9 +1,7 @@
 package pl.com.ptaq.courses.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.service.CreateCourseService;
 
@@ -13,10 +11,9 @@ public class CreateCourseController {
     CreateCourseService createCourseService;
 
     @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
     public boolean addCourse(@RequestBody Course course) {
-
-
-        return false;
+        return createCourseService.addCourse(course);
     }
 
 }
