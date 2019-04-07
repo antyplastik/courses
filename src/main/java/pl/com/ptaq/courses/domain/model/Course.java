@@ -1,23 +1,21 @@
 package pl.com.ptaq.courses.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.joda.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Course {
 
     private String courseName;
     private String courseDescription;
     private String localization;
-    private LocalDate startDate;
+    private String startDate;
 
-    private CourseType courseType;
-    private CourseProfile courseProfile;
+    private String courseType;
+    private String courseProfile;
 
 }

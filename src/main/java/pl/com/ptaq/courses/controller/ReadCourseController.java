@@ -1,20 +1,26 @@
 package pl.com.ptaq.courses.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.com.ptaq.courses.domain.model.Course;
+import pl.com.ptaq.courses.service.ReadCourseService;
 
 import java.util.List;
 
 @RestController
 public class ReadCourseController {
 
+    @Autowired
+    private ReadCourseService courseService;
+
     @PostMapping("/type")
     @ResponseStatus(HttpStatus.FOUND)
     public List<Course> findByType(@RequestParam(name = "type") String type) {
+        courseService.findByCourseType(type);
         return null;
     }
 
