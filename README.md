@@ -1,3 +1,3 @@
-#Simple Course Organizer API
+# Simple Course Organizer API
 
-##Based on Spring
+## Based on Spring
