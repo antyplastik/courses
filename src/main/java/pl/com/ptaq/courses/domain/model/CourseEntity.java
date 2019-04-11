@@ -30,11 +30,13 @@ public class CourseEntity {
     private String courseDescription;
     private String localization;
 
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     private LocalDate startDate;
 
     private CourseType courseType;
     private CourseProfile courseProfile;
 
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime lastModification;
 
 }

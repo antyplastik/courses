@@ -8,13 +8,13 @@ public class CourseTypeMapper {
         courseType = courseType.toUpperCase();
 
         if (courseType != null || !courseType.equals("")) {
-            if (CourseType.DAILY.equals(courseType))
+            if (CourseType.DAILY.toString().equals(courseType))
                 return CourseType.DAILY;
 
-            else if (CourseType.NIGHTLY.equals(courseType))
+            else if (CourseType.NIGHTLY.toString().equals(courseType))
                 return CourseType.NIGHTLY;
 
-            else if (CourseType.EXTRAMURAL.equals(courseType))
+            else if (CourseType.EXTRAMURAL.toString().equals(courseType))
                 return CourseType.EXTRAMURAL;
         }
 

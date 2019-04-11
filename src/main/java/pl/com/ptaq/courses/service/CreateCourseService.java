@@ -13,9 +13,7 @@ public class CreateCourseService {
     private CourseRepository repository;
 
     public boolean addCourseToDatabase(Course course) {
-        repository.save(CourseMapper.mapToDatabaseObject(course));
-
-        return false;
+        return repository.save(CourseMapper.mapToDatabaseObject(course)) != null ? true : false;
     }
 
 }

@@ -1,6 +1,7 @@
 package pl.com.ptaq.courses.service.mappers;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.joda.time.LocalDate;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.domain.model.CourseEntity;
@@ -16,7 +17,7 @@ public class CourseMapper {
         ce.setLocalization(course.getLocalization());
         ce.setStartDate(mapStringToLocalDate(course.getStartDate()));
         ce.setCourseDescription(course.getCourseDescription());
-        ce.setLastModification(DateTime.now());
+        ce.setLastModification(addTimestamp());
 
         return ce;
     }
@@ -40,5 +41,10 @@ public class CourseMapper {
 
     private static DateTime mapStringToDateTime(String timestamp){
         return DateTime.parse(timestamp);
+    }
+
+    private static DateTime addTimestamp(){
+        DateTime date= DateTime.now();
+        return date;
     }
 }

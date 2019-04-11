@@ -9,13 +9,13 @@ public class CourseProfileMapper {
         courseProf = courseProf.toUpperCase();
 
         if (courseProf != null || !courseProf.equals("")) {
-            if (CourseProfile.ADMIN.equals(courseProf))
+            if (CourseProfile.ADMIN.toString().equals(courseProf))
                 return CourseProfile.ADMIN;
 
-            else if (CourseProfile.DEVELOPER.equals(courseProf))
+            else if (CourseProfile.DEVELOPER.toString().equals(courseProf))
                 return CourseProfile.DEVELOPER;
 
-            else if (CourseProfile.TESTER.equals(courseProf))
+            else if (CourseProfile.TESTER.toString().equals(courseProf))
                 return CourseProfile.TESTER;
         }
 
