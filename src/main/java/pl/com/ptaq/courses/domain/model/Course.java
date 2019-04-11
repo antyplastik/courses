@@ -18,4 +18,15 @@ public class Course {
     private String courseType;
     private String courseProfile;
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(courseName).append(";")
+        .append(courseDescription).append(";")
+        .append(localization).append(";")
+        .append(startDate).append(";")
+        .append(courseType).append(";")
+        .append(courseProfile);
+        return sb.toString();
+    }
 }

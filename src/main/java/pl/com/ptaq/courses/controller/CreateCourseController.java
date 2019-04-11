@@ -25,15 +25,15 @@ public class CreateCourseController {
 
     @PostMapping(value = "/addList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Map<String, Course> addCourse(@RequestBody List<Course> courses) {
-        Map<String, Course> response = new HashMap<>();
+    public Map<String, Boolean> addCourse(@RequestBody List<Course> courses) {
+        Map<String, Boolean> response = new HashMap<>();
 
         if (courses != null)
             for (Course course : courses)
                 if (createCourseService.addCourseToDatabase(course))
-                    response.put("Created", course);
+                    response.put("Created " + course.toString(), true);
                 else
-                    response.put("Not created", course);
+                    response.put("Not created" + course.toString(), false);
 
         return response;
     }

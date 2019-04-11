@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.service.ReadCourseService;
 
+import javax.print.DocFlavor;
 import java.util.List;
 
 @RestController
@@ -24,27 +25,32 @@ public class ReadCourseController {
         return null;
     }
 
-    @PostMapping("/profile")
+    @PostMapping(value = "/profile")
     @ResponseStatus(HttpStatus.FOUND)
     public List<Course> findByProfile(@RequestParam(name = "profile") String profile) {
-        return null;
+        return courseService.findByCourseProfile(profile);
     }
 
     @PostMapping("/localization")
     @ResponseStatus(HttpStatus.FOUND)
     public List<Course> findByLocalization(@RequestParam(name = "localization") String localization) {
-        return null;
+        return courseService.findByCourseLocalization(localization);
     }
 
-    @PostMapping("/notStarted")
-    @ResponseStatus(HttpStatus.FOUND)
-    public List<Course> findAllNotStarted(@RequestParam(name = "notStarted") String started) {
-        return null;
-    }
+//    @PostMapping("/notStarted")
+//    @ResponseStatus(HttpStatus.FOUND)
+//    public List<Course> findAllNotStarted(@RequestParam(name = "notStarted") String started) {
+//        return null;
+//    }
 
     @PostMapping("/started")
     @ResponseStatus(HttpStatus.FOUND)
     public List<Course> findAllStarted(@RequestParam(name = "started") String started) {
-        return null;
+        started = started.toUpperCase();
+
+        if(started.equals("Y") ||started.equals("YES")||started.equals("T")||started.equals("TRUE"))
+            return courseService.findCoursesStarted();
+        else
+            return courseService.findCoursesNotStarted();
     }
 }

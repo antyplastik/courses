@@ -3,7 +3,7 @@ package pl.com.ptaq.courses.domain.model.enums;
 public enum CourseType {
     DAILY("DZIENNY"),
     NIGHTLY("WIECZOROWY"),
-    EXTRAMURAL("ZAOUCZNY");
+    EXTRAMURAL("ZAOCZNY");
 
     private String type;
 
