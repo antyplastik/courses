@@ -27,21 +27,14 @@ public class ReadCourseService {
                 entity.getCourseProfile(),
                 entity.getCourseType(),
                 entity.getStartDate());
-        return (entities.size() > 0 || entities != null) ? true : false;
+        return (entities.size() > 0) ? true : false;
     }
 
     public List<Course> findByCourseType(String type) {
-        List<Course> result = new ArrayList<>();
-        List<CourseEntity> entities = courseRepository.findAllByCourseType(CourseTypeMapper.mapToCourseType(type));
-
-        for (CourseEntity entity : entities)
-            result.add(CourseMapper.map(entity));
-
-//        return courseRepository.findAllByCourseType(CourseTypeMapper.mapToCourseType(type))
-//                .stream()
-//                .map(CourseMapper::map)
-//                .collect(Collectors.toList());
-        return result;
+        return courseRepository.findAllByCourseType(CourseTypeMapper.mapToCourseType(type))
+                .stream()
+                .map(CourseMapper::map)
+                .collect(Collectors.toList());
     }
 
     public List<Course> findByCourseProfile(String profile) {

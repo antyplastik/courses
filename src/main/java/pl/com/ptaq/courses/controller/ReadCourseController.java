@@ -21,8 +21,7 @@ public class ReadCourseController {
     @PostMapping("/type")
     @ResponseStatus(HttpStatus.FOUND)
     public List<Course> findByType(@RequestParam(name = "type") String type) {
-        courseService.findByCourseType(type);
-        return null;
+        return courseService.findByCourseType(type);
     }
 
     @PostMapping(value = "/profile")
