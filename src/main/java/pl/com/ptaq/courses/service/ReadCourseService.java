@@ -10,15 +10,18 @@ import pl.com.ptaq.courses.service.mappers.CourseMapper;
 import pl.com.ptaq.courses.service.mappers.CourseProfileMapper;
 import pl.com.ptaq.courses.service.mappers.CourseTypeMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class ReadCourseService {
 
+    private final CourseRepository courseRepository;
+
     @Autowired
-    private CourseRepository courseRepository;
+    public ReadCourseService(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
 
     public boolean isExist(Course course) {
         CourseEntity entity = CourseMapper.mapToDatabaseObject(course);

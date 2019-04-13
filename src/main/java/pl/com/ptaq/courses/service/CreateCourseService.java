@@ -3,7 +3,6 @@ package pl.com.ptaq.courses.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.com.ptaq.courses.domain.model.Course;
-import pl.com.ptaq.courses.domain.model.enums.CourseType;
 import pl.com.ptaq.courses.domain.repository.CourseRepository;
 import pl.com.ptaq.courses.service.mappers.CourseMapper;
 import pl.com.ptaq.courses.service.mappers.CourseProfileMapper;
@@ -15,11 +14,14 @@ import java.util.List;
 @Service
 public class CreateCourseService {
 
-    @Autowired
-    private CourseRepository repository;
+    private final CourseRepository repository;
+    private final ReadCourseService read;
 
     @Autowired
-    private ReadCourseService read;
+    public CreateCourseService(CourseRepository repository, ReadCourseService read) {
+        this.repository = repository;
+        this.read = read;
+    }
 
     public boolean addCourseToDatabase(Course course) {
         if (check(course))
@@ -40,11 +42,14 @@ public class CreateCourseService {
         for (String tmpStr : tmp) {
             if (tmpStr.equals("") || tmpStr == null)
                 return false;
+
             if (CourseProfileMapper.mapToCourseProfile(tmpStr) != null)
                 courseProfile = true;
+
             if (CourseTypeMapper.mapToCourseType(tmpStr) != null)
                 courseType = true;
         }
+
         return true && courseProfile && courseType;
     }
 }

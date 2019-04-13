@@ -10,10 +10,6 @@ import pl.com.ptaq.courses.domain.model.CourseEntity;
 import pl.com.ptaq.courses.domain.model.enums.CourseProfile;
 import pl.com.ptaq.courses.domain.model.enums.CourseType;
 
-import java.util.UUID;
-
-import static org.junit.Assert.*;
-
 @RunWith(JUnitParamsRunner.class)
 public class CourseMapperTest {
 
