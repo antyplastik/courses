@@ -9,14 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.service.ReadCourseService;
 
-import javax.print.DocFlavor;
 import java.util.List;
 
 @RestController
 public class ReadCourseController {
 
+    private final ReadCourseService courseService;
+
     @Autowired
-    private ReadCourseService courseService;
+    public ReadCourseController(ReadCourseService courseService) {
+        this.courseService = courseService;
+    }
 
     @PostMapping("/type")
     @ResponseStatus(HttpStatus.FOUND)
@@ -47,7 +50,7 @@ public class ReadCourseController {
     public List<Course> findAllStarted(@RequestParam(name = "started") String started) {
         started = started.toUpperCase();
 
-        if(started.equals("Y") ||started.equals("YES")||started.equals("T")||started.equals("TRUE"))
+        if (started.equals("Y") || started.equals("YES") || started.equals("T") || started.equals("TRUE"))
             return courseService.findCoursesStarted();
         else
             return courseService.findCoursesNotStarted();
