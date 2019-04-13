@@ -14,15 +14,21 @@ public class CourseTypeMapper {
             else if (CourseType.NIGHTLY.toString().equals(courseType))
                 return CourseType.NIGHTLY;
 
-            else if (CourseType.EXTRAMURAL.toString().equals(courseType))
+            else if (CourseType.EXTRAMURAL.toString().equals(courseType) || extramuralAlternatives(courseType))
                 return CourseType.EXTRAMURAL;
         }
-
         return null;
     }
 
     public static String mapToString(CourseType courseType) {
         return courseType.toString();
+    }
+
+    private static boolean extramuralAlternatives (String string){
+        if (string.equals("ZAOCZNY"))
+            return true;
+
+        return false;
     }
 
 }

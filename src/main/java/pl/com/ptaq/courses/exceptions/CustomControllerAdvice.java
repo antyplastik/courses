@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import pl.com.ptaq.courses.exceptions.ReksioNotAllowedException;
 
 @RestControllerAdvice
 public class CustomControllerAdvice {
@@ -12,7 +11,7 @@ public class CustomControllerAdvice {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handle(Exception ex){
-        return "Coś poszło nie tak.\nA mianowicie:\n" + ex.getMessage();
+        return "Smuteczek... Coś poszło nie tak i było buuummm!";
     }
 
     @ExceptionHandler

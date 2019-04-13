@@ -26,4 +26,11 @@ public class CourseProfileMapper {
         return courseProfile.toString();
     }
 
+    private static boolean developerAlternatives(String string){
+        if(string.equals("DEWELOPER"))
+            return true;
+
+        return false;
+    }
+
 }
