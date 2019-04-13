@@ -2,10 +2,7 @@ package pl.com.ptaq.courses.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.service.ReadCourseService;
 
@@ -19,6 +16,12 @@ public class ReadCourseController {
     @Autowired
     public ReadCourseController(ReadCourseService courseService) {
         this.courseService = courseService;
+    }
+
+    @PostMapping("/id")
+    @ResponseStatus(HttpStatus.FOUND)
+    public Course findByIdNumber(@RequestParam(name = "id") String id) {
+        return courseService.findByCourseId(id);
     }
 
     @PostMapping("/type")
@@ -38,12 +41,6 @@ public class ReadCourseController {
     public List<Course> findByLocalization(@RequestParam(name = "localization") String localization) {
         return courseService.findByCourseLocalization(localization);
     }
-
-//    @PostMapping("/notStarted")
-//    @ResponseStatus(HttpStatus.FOUND)
-//    public List<Course> findAllNotStarted(@RequestParam(name = "notStarted") String started) {
-//        return null;
-//    }
 
     @PostMapping("/started")
     @ResponseStatus(HttpStatus.FOUND)

@@ -29,6 +29,7 @@ public class ReadCourseServiceTest {
     @Test
     public void isExist() {
         Course expected = new Course().builder()
+                .courseIdNumber("JAVAWWA13")
                 .courseName("Junior Java Developer")
                 .courseDescription("test4")
                 .localization("test4a")

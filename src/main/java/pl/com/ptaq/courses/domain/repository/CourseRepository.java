@@ -9,11 +9,14 @@ import pl.com.ptaq.courses.domain.model.CourseEntity;
 import pl.com.ptaq.courses.domain.model.enums.CourseProfile;
 import pl.com.ptaq.courses.domain.model.enums.CourseType;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface CourseRepository extends PagingAndSortingRepository<CourseEntity, UUID> {
+
+    CourseEntity findByCourseIdNumber(String id);
 
     List<CourseEntity> findAllByCourseType(CourseType courseType);
 
@@ -25,6 +28,6 @@ public interface CourseRepository extends PagingAndSortingRepository<CourseEntit
 
     List<CourseEntity> findAllByStartDateAfter(LocalDate date);
 
-    List<CourseEntity> findByCourseNameAndAndCourseProfileAndCourseTypeAndStartDate(String courseName, CourseProfile profile, CourseType type, LocalDate startDate);
+    List<CourseEntity> findByCourseIdNumberAndCourseNameAndAndCourseProfileAndCourseTypeAndStartDate(@NotNull String courseIdNumber, String courseName, CourseProfile profile, CourseType type, LocalDate startDate);
 
 }

@@ -10,6 +10,7 @@ import org.joda.time.LocalDate;
 @Builder
 public class Course {
 
+    private String courseIdNumber;
     private String courseName;
     private String courseDescription;
     private String localization;
@@ -21,12 +22,13 @@ public class Course {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(courseName).append(";")
-        .append(courseDescription).append(";")
-        .append(localization).append(";")
-        .append(startDate).append(";")
-        .append(courseType).append(";")
-        .append(courseProfile);
+        sb.append(courseIdNumber).append(";")
+                .append(courseName).append(";")
+                .append(courseDescription).append(";")
+                .append(localization).append(";")
+                .append(startDate).append(";")
+                .append(courseType).append(";")
+                .append(courseProfile);
         return sb.toString();
     }
 }

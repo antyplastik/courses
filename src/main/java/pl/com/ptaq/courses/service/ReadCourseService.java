@@ -25,12 +25,21 @@ public class ReadCourseService {
 
     public boolean isExist(Course course) {
         CourseEntity entity = CourseMapper.mapToDatabaseObject(course);
-        List<CourseEntity> entities = courseRepository.findByCourseNameAndAndCourseProfileAndCourseTypeAndStartDate(
+        List<CourseEntity> entities = courseRepository.findByCourseIdNumberAndCourseNameAndAndCourseProfileAndCourseTypeAndStartDate(
+                entity.getCourseIdNumber(),
                 entity.getCourseName(),
                 entity.getCourseProfile(),
                 entity.getCourseType(),
                 entity.getStartDate());
         return (entities.size() > 0) ? true : false;
+    }
+
+    public boolean isExist(String id){
+        return courseRepository.findByCourseIdNumber(id) != null ?  true : false;
+    }
+
+    public Course findByCourseId(String id){
+        return CourseMapper.map(courseRepository.findByCourseIdNumber(id));
     }
 
     public List<Course> findByCourseType(String type) {

@@ -30,6 +30,8 @@ public class CourseEntity {
     private UUID id;
 
     @NotNull
+    private String courseIdNumber;
+    @NotNull
     private String courseName;
     @NotNull
     private String courseDescription;

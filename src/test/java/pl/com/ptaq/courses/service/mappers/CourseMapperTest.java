@@ -41,6 +41,7 @@ public class CourseMapperTest {
         return new Object[]{
                 new Object[]{
                         new Course().builder()
+                                .courseIdNumber("JAVAWWA20")
                                 .courseName("Junior Java Developer")
                                 .courseDescription("test1")
                                 .courseProfile("developer")
@@ -51,6 +52,7 @@ public class CourseMapperTest {
 
                         new CourseEntity(
                                 null,
+                                "JAVAWWA20",
                                 "Junior Java Developer",
                                 "test1",
                                 "test2",

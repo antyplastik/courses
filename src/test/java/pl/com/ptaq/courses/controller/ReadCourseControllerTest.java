@@ -33,6 +33,7 @@ public class ReadCourseControllerTest {
         readCourseService = new ReadCourseService(courseRepository);
 
         Course entity1 = new Course().builder()
+                .courseIdNumber("TESTERWWA9")
                 .courseName("Manual Tester")
                 .courseDescription("test2")
                 .localization("test2a")
@@ -42,6 +43,7 @@ public class ReadCourseControllerTest {
                 .build();
 
         Course entity2 = new Course().builder()
+                .courseIdNumber("ADMINLU3")
                 .courseName("Admin")
                 .courseDescription("test3")
                 .localization("test3a")
@@ -51,6 +53,7 @@ public class ReadCourseControllerTest {
                 .build();
 
         Course entity3 = new Course().builder()
+                .courseIdNumber("JAVAWWA13")
                 .courseName("Junior Java Developer")
                 .courseDescription("test4")
                 .localization("test4a")
@@ -60,10 +63,11 @@ public class ReadCourseControllerTest {
                 .build();
 
         Course entity4 = new Course().builder()
+                .courseIdNumber("JAVAWWA3")
                 .courseName("Junior Java Developer")
                 .courseDescription("test4")
                 .localization("test4a")
-                .startDate("2018-10-16")
+                .startDate("2017-10-16")
                 .courseType("zaoczny")
                 .courseProfile("developer")
                 .build();
