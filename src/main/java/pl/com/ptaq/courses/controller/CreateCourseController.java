@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.service.CreateCourseService;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class CreateCourseController {
 
     @PostMapping(value = "/addList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Map<String, Boolean> addCourse(@RequestBody List<Course> courses) {
+    public Map<String, Boolean> addCourse(@Valid @RequestBody List<Course> courses) {
         Map<String, Boolean> response = new HashMap<>();
 
         if (courses != null)

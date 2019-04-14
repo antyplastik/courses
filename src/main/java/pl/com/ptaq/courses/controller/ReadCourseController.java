@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.com.ptaq.courses.domain.model.Course;
 import pl.com.ptaq.courses.service.ReadCourseService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,13 +21,13 @@ public class ReadCourseController {
 
     @PostMapping("/id")
     @ResponseStatus(HttpStatus.FOUND)
-    public Course findByIdNumber(@RequestParam(name = "id") String id) {
+    public Course findByIdNumber(@Valid @RequestParam(name = "id") String id) {
         return courseService.findByCourseId(id);
     }
 
     @PostMapping("/type")
     @ResponseStatus(HttpStatus.FOUND)
-    public List<Course> findByType(@RequestParam(name = "type") String type) {
+    public List<Course> findByType( @RequestParam(name = "type") String type) {
         return courseService.findByCourseType(type);
     }
 
