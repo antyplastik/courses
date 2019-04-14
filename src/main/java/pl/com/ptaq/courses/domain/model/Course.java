@@ -1,7 +1,7 @@
 package pl.com.ptaq.courses.domain.model;
 
 import lombok.*;
-import org.joda.time.LocalDate;
+import pl.com.ptaq.courses.validators.CustomConstraint;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
@@ -18,6 +18,7 @@ public class Course {
     @Max(50)
     @NotEmpty
     @NotNull
+    @CustomConstraint
     private String courseIdNumber;
     @NotEmpty
     @Max(255)
