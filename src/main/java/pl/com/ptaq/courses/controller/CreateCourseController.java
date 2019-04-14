@@ -20,7 +20,7 @@ public class CreateCourseController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public boolean addCourse(@RequestBody Course course) {
+    public boolean addCourse(@Valid @RequestBody Course course) {
         return createCourseService.addCourseToDatabase(course);
     }
 

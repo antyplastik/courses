@@ -1,12 +1,10 @@
 package pl.com.ptaq.courses.domain.model;
 
 import lombok.*;
-import pl.com.ptaq.courses.validators.CustomConstraint;
+import org.hibernate.validator.constraints.Length;
+import pl.com.ptaq.courses.validators.LocalizationConstraint;
 
-import javax.validation.constraints.Future;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,17 +13,17 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class Course {
 
-    @Max(50)
+    @Size(max = 255)
     @NotEmpty
     @NotNull
-    @CustomConstraint
     private String courseIdNumber;
     @NotEmpty
-    @Max(255)
+    @Size(max = 255)
     private String courseName;
     @NotEmpty
     private String courseDescription;
-    @NotEmpty
+    @NotBlank
+//    @LocalizationConstraint()
     private String localization;
     @NotEmpty
     @Future
