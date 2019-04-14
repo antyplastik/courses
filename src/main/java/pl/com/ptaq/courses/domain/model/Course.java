@@ -1,5 +1,6 @@
 package pl.com.ptaq.courses.domain.model;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import pl.com.ptaq.courses.validators.LocalizationConstraint;
