@@ -1,8 +1,5 @@
 package pl.com.ptaq.courses.controller;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,9 +20,9 @@ public class CreateCourseController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Course added")
-    })
+//    @ApiResponses(value = {
+//            @ApiResponse(code = 200, message = "Course added")
+//    })
     public boolean addCourse(@Valid @RequestBody Course course) {
         return createCourseService.addCourseToDatabase(course);
     }
