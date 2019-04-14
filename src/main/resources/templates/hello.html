@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -15,6 +18,9 @@
 <form th:action="@{/logout}" method="POST">
     <input type="submit" value="Wyloguj"/>
 </form>
+
+<div sec:authorize="hasRole('USER')">Tekst widoczny tylko dla zwykłych użytkowników</div>
+<div sec:authorize="hasRole('ADMIN')">Tekst widoczny tylko dla adminów</div>
 
 </body>
 </html>
